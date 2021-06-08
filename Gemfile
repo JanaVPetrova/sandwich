@@ -14,6 +14,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'hotwire-rails'
 gem 'turbo-rails'
 gem 'stimulus-rails'
+gem 'jquery-rails'
+gem 'sprockets-rails', require: 'sprockets/railtie'
+gem 'bootstrap', '~> 5.0.1'
+gem 'slim'
 
 gem 'image_processing', '~> 1.2'
 
