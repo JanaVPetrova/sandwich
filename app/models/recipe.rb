@@ -1,4 +1,6 @@
 class Recipe < ApplicationRecord
+  include ImageUploader::Attachment(:image)
+
   has_many :ingredient_groups
   has_many :recipe_ingredients, through: :ingredient_groups
   has_many :ingredients, through: :recipe_ingredients
@@ -6,17 +8,13 @@ class Recipe < ApplicationRecord
   validates :title, presence: true
   validates :body, presence: true
 
-  def image_url(version = nil)
-    version ? image_attacher.url(version.to_sym) : image_attacher.url
-  end
-
-  def image
-    image_attacher.file
-  end
+  after_create :generate_image_derivatives
 
   private
 
-  def image_attacher
-    ImageUploader::Attacher.from_model(self, :image)
+  def generate_image_derivatives
+    return if image_data.blank?
+
+    image_derivatives!
   end
 end

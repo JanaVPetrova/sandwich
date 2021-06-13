@@ -11,13 +11,13 @@
             = link_to I18n.t('edit'), routes.edit_profile_recipe_path(recipe.id), class: 'btn btn-link btn-sm small text-muted'
     .row
       .col-md-12
-        /= render partial: 'shared/nutrition_facts', locals: { recipe: recipe, current_user: current_user }
+        = render partial: 'shared/recipes/nutrition_facts', locals: { recipe: recipe }
 .space-20
 .row
   .col-md-4
     h3
       = Recipe.human_attribute_name(:ingredients)
-    table.table.table-sm.table-striped.table-borderless.w-100
+    table.table.table-sm.table-hover.table-borderless.w-100
       - recipe.ingredient_groups.each do |ingredient_group|
         - if ingredient_group.title
           h5 = ingredient_group.title
