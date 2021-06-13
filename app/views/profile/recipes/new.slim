@@ -1,0 +1,39 @@
+.row
+  .col-md-12
+    h1 = t('.new_recipe')
+.row
+  .col-md-4.offset-md-4
+    .position-relative.m-4
+      .position-absolute.top-0.start-0.translate-middle.btn.btn-sm.rounded-pill.progress-step-active 1
+      .position-absolute.top-0.start-50.translate-middle.btn.btn-sm.rounded-pill.progress-step 2
+      .position-absolute.top-0.start-100.translate-middle.btn.btn-sm.rounded-pill.progress-step 3
+.row
+  .col-md-6.offset-md-3
+    .m-5.text-center
+      i = t('.step_1_description')
+
+.row
+  .col-md-8.offset-md-2
+    = form_for @recipe, url: profile_recipes_path do |f|
+      .form-group.mb-3
+        = f.label Recipe.human_attribute_name(:title), class: 'form-label'
+        = f.text_field :title, class: "form-control #{'is-invalid' if @recipe.errors.messages[:title].present?}"
+        - if @recipe.errors.messages[:title].present?
+          .form-text.text-danger
+            = @recipe.errors.messages[:title].join(', ')
+      .form-group.mb-3
+        = f.label Recipe.human_attribute_name(:image), class: 'form-label'
+        = f.file_field :image, class: 'form-control'
+
+      .form-group.mb-3
+        = f.label Recipe.human_attribute_name(:body), class: 'form-label'
+        = f.text_area :body, class: "form-control #{'is-invalid' if @recipe.errors.messages[:body].present?}", rows: 12
+        - if @recipe.errors.messages[:body].present?
+          .form-text.text-danger
+            = @recipe.errors.messages[:body].join(', ')
+
+      .space-20
+      .form-group.text-center
+        = f.submit t('continue'), class: 'btn btn-primary'
+
+

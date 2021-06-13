@@ -1,0 +1,43 @@
+doctype html
+html lang='en'
+  head
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application'
+    = javascript_pack_tag 'application'
+    title = t('.sausage_sandwich')
+
+  body
+    header.header
+    .page-container
+      nav.navbar.navbar-expand-lg.bg-main.mb-4 role="navigation"
+        .container
+          .navbar-header
+            a href=recipes_path
+              = image_tag('icon.svg', alt: 'Бутерброд с колбасой', width: 220)
+
+          button.navbar-toggler type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation"
+            span.bi-list.text-white
+
+          .collapse.navbar-collapse#navbarToggler
+            ul.navbar-nav.mr-auto
+              - if signed_in?
+                li.nav-item
+                  = link_to t('.create_recipe'), new_profile_recipe_path, class: 'nav-link btn-link'
+            ul.navbar-nav
+              - if signed_in?
+                li.nav-item
+                  = link_to t('.my_recipes'), profile_root_path, class: 'nav-link btn-link'
+                li.nav-item
+                  = button_to t('.sign_out'), session_path, method: 'delete', class: 'nav-link btn-link'
+              - else
+                li.nav-item
+                  = link_to t('.sign_up'), new_user_path, class: 'nav-link btn-link'
+                li.nav-item
+                  = link_to t('.sign_in'), new_session_path, class: 'nav-link btn-link'
+      .container.with-bottom
+        main role='main'
+          = yield
+
+      footer.footer.bg-main.text-white
+        = t('.sausage_sandwich_copyright', years: [2020, Time.current.year].join(' – '))

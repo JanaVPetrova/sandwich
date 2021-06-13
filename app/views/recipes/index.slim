@@ -1,0 +1,5 @@
+- @recipes.each_slice(4) do |group|
+  .row
+    - group.each do |recipe|
+      .col-lg-3
+        = render partial: 'shared/recipes/small_card', locals: { recipe: recipe }

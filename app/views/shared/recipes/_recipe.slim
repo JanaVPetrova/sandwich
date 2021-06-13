@@ -1,0 +1,36 @@
+.row
+  .col-md-6
+    img src=(recipe.image_url(:large) || asset_path('recipe_placeholder.jpg')) class='w-100 card-img'
+
+  .col-md-6
+    .row
+      .col-md-12
+        h1.text-capitalize
+          = recipe.title
+          - if can_edit_recipe?(recipe, current_user)
+            = link_to I18n.t('edit'), routes.edit_profile_recipe_path(recipe.id), class: 'btn btn-link btn-sm small text-muted'
+    .row
+      .col-md-12
+        /= render partial: 'shared/nutrition_facts', locals: { recipe: recipe, current_user: current_user }
+.space-20
+.row
+  .col-md-4
+    h3
+      = Recipe.human_attribute_name(:ingredients)
+    table.table.table-sm.table-striped.table-borderless.w-100
+      - recipe.ingredient_groups.each do |ingredient_group|
+        - if ingredient_group.title
+          h5 = ingredient_group.title
+        - ingredient_group.recipe_ingredients.each do |recipe_ingredient|
+          tr
+            td.text-capitalize
+              = recipe_ingredient.ingredient_title
+            td.text-end
+              span.visible
+                = recipe_ingredient.metric_quantity
+              span.invisible
+                = recipe_ingredient.imperial_quantity
+
+  .col-md-8
+    h3 = Recipe.human_attribute_name(:body)
+    = recipe.body

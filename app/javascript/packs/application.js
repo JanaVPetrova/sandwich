@@ -5,7 +5,9 @@
 
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
+require("bootstrap")
 require("channels")
+require("@popperjs/core")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

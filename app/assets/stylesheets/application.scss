@@ -1,1 +1,161 @@
 @import "bootstrap";
+@import "bootstrap-icons";
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+$primary: #A1221A;
+$secondary: #E58F8A;
+
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.with-bottom {
+  padding-bottom: 120px;
+}
+
+.footer {
+  height: 100px;
+  min-width: 100%;
+  position: absolute;
+  bottom: 0;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.invisible {
+  display: none;
+}
+
+.bg-main {
+  background-color: $secondary;
+}
+
+.text-white {
+  color: #FFFFFF;
+}
+
+.nav-link {
+  color: #FFFFFF;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+  color: #FFFFFF;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn {
+  border-radius: 20px;
+}
+
+.btn-primary {
+  background-color: $primary;
+  border-color: $primary;
+}
+
+.btn-primary:hover {
+  background-color: $primary;
+  border-color: $primary;
+}
+
+.btn-secondary {
+  background-color: $secondary;
+  border-color: $secondary;
+}
+
+.btn-secondary:hover {
+  background-color: $secondary;
+  border-color: $secondary;
+}
+
+.space-40 {
+  height: 40px;
+}
+
+.space-20 {
+  height: 20px;
+}
+
+.progress-step {
+  height: 2rem;
+  width: 2rem;
+  background-color: $secondary;
+  color: #FFFFFF;
+}
+
+.progress-step-completed {
+  background-color: #E58F8A;
+  color: #FFFFFF;
+}
+
+.progress-step-active {
+  background-color: $primary;
+  color: #FFFFFF;
+  height: 3rem;
+  width: 3rem;
+  line-height: 2.1rem;
+  font-size: larger;
+}
+
+.card {
+  border-radius: 5px;
+}
+
+.card-img {
+  border-radius: 5px;
+}
+
+.card-img-overlay {
+  top: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 0 0 5px 5px;
+  padding: 0.6rem;
+}
+
+.recipe-card {
+  margin: 15px 0 15px 0;
+}
+
+.nutrition-facts {
+  border: 2px solid #E58F8A;
+  border-radius: 5px;
+  line-height: 2;
+}
+
+.border-main {
+  border-color: #E58F8A !important;
+}
+
+.text-h5 {
+  font-size: 1.25rem;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.text-h3 {
+  font-size: 1.75rem;
+  font-weight: 500;
+}
+
+.small-number-field {
+  width: 100px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: #FFFFFF;
+}
+
+:root {
+  --primary: $primary;
+}

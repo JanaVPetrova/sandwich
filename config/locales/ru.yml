@@ -1,0 +1,113 @@
+ru:
+  edit: Редактировать
+  save: Сохранить
+  cancel: Отмена
+  continue: Продолжить
+  units:
+    mg: мг
+    g: г
+    kg: кг
+    pieces: шт
+    ml: мл
+    l: л
+    pound:
+      zero: фунтов
+      one: фунт
+      few: фунта
+      other: фунтов
+      many: фунтов
+    ounce:
+      zero: унций
+      one: унция
+      few: унции
+      other: унций
+      many: унций
+    gallon:
+      zero: галлонов
+      one: галлон
+      few: галлона
+      other: галлонов
+      many: галлонов
+    quart:
+      zero: кварт
+      one: кварта
+      few: кварты
+      other: кварт
+      many: кварт
+    pint:
+      zero: пинт
+      one: пинта
+      few: пинты
+      other: пинт
+      many: пинт
+    cup:
+      zero: чашек
+      one: чашка
+      few: чашки
+      other: чашек
+      many: чашек
+    fluid_ounce:
+      zero: жидких унций
+      one: жидкая унция
+      few: жидких унции
+      other: жидких унций
+      many: жидких унций
+    tablespoon:
+      zero: столовых ложек
+      one: столовая ложка
+      few: столовые ложки
+      other: столовых ложек
+      many: столовых ложек
+    teaspoon:
+      zero: чайных ложек
+      one: чайная ложка
+      few: чайные ложки
+      other: чайных ложек
+      many: чайных ложек
+    glass:
+      zero: стаканов
+      one: стакан
+      few: стакана
+      other: стаканов
+      many: стаканов
+    handful:
+      zero: горстей
+      one: горсть
+      few: горсти
+      other: горстей
+      many: горстей
+    pinch:
+      zero: щепоток
+      one: щепотка
+      few: щепотки
+      other: щепоток
+      many: щепоток
+  layouts:
+    application:
+      sausage_sandwich: Бутерброд с колбасой
+      create_recipe: Записать рецепт
+      my_recipes: Мои рецепты
+      sign_out: Выйти
+      sign_up: Зарегистрироваться
+      sign_in: Войти
+      sausage_sandwich_copyright: Бутерброд с колбасой, %{years}
+  profile:
+    recipes:
+      new:
+        new_recipe: Новый рецепт
+        step_1_description: Запишите процесс приготовления. Не беспокойтесь о количестве ингредиентов, их можно будет описать на втором шаге
+      recipe_ingredients:
+        index:
+          step_2_description: Запишите ингредиенты
+  shared:
+    recipes:
+      recipe:
+        to_imperial: В имперскую систему мер
+        to_metric: В метрическую систему мер
+  activerecord:
+    attributes:
+      recipe:
+        ingredients: Ингредиенты
+        body: Инструкции
+        title: Название
+        image: Фото
