@@ -4,11 +4,12 @@ class Profile::RecipesController < Profile::ApplicationController
   end
 
   def create
-    @recipe = current_user.recipes.build(recipe_params)
+    result = ::Recipes::Create.call(user: current_user, recipe_params: recipe_params)
 
-    if @recipe.save
-      redirect_to profile_recipe_recipe_ingredients_path(@recipe)
+    if result.success?
+      redirect_to profile_recipe_ingredient_groups_path(result.recipe)
     else
+      @recipe = result.recipe
       render :new
     end
   end

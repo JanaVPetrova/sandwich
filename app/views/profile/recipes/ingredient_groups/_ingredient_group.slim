@@ -1,0 +1,11 @@
+.row
+  .col-md-12
+    = render partial: 'update_title', locals: { ingredient_group: ingredient_group }
+
+= turbo_stream_from ingredient_group
+.row
+  .col-md-12 id="#{dom_id(ingredient_group)}_list"
+    = render partial: 'shared/recipe_ingredients', locals: { ingredient_group: ingredient_group }
+
+= turbo_frame_tag dom_id(ingredient_group), src: new_profile_recipe_ingredient_group_recipe_ingredient_path(current_recipe, ingredient_group), target: '_top'
+hr.my-5

@@ -33,4 +33,4 @@
 
   .col-md-8
     h3 = Recipe.human_attribute_name(:body)
-    = recipe.body
+    = simple_format(recipe.body)

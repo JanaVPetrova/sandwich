@@ -13,7 +13,7 @@
       i = t('.step_1_description')
 
 .row
-  .col-md-8.offset-md-2
+  .col-md-8.offset-md-2 data-turbo="false"
     = form_for @recipe, url: profile_recipes_path do |f|
       .form-group.mb-3
         = f.label Recipe.human_attribute_name(:title), class: 'form-label'

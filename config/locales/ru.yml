@@ -96,9 +96,22 @@ ru:
       new:
         new_recipe: Новый рецепт
         step_1_description: Запишите процесс приготовления. Не беспокойтесь о количестве ингредиентов, их можно будет описать на втором шаге
-      recipe_ingredients:
+      ingredient_groups:
         index:
+          title: Название
           step_2_description: Запишите ингредиенты
+        new:
+          add_ingredient_group: Добавить группу ингредиентов
+          title: Название
+      recipe_ingredients:
+        batch_edit:
+          title: Ингредиент
+          quantity: Количество
+          unit_in_mg: Вес 1 единицы
+          protein_per_100_g: Белков на 100 г
+          fat_per_100_g: Жиров на 100 г
+          carbs_per_100_g: Углеводов на 100 г
+          in_1_unit_of_ingredient: 1 %{unit} весит
   shared:
     recipes:
       recipe:
@@ -111,3 +124,5 @@ ru:
         body: Инструкции
         title: Название
         image: Фото
+      ingredient_group:
+        title: Название

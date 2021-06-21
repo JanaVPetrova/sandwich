@@ -1,0 +1,36 @@
+.row
+  .col-md-12
+    h1 = current_recipe.title
+.row
+  .col-md-4.offset-md-4
+    .position-relative.m-4
+      .position-absolute.top-0.start-0.translate-middle.btn.btn-sm.rounded-pill.progress-step 1
+      .position-absolute.top-0.start-50.translate-middle.btn.btn-sm.rounded-pill.progress-step-active 2
+      .position-absolute.top-0.start-100.translate-middle.btn.btn-sm.rounded-pill.progress-step 3
+.row
+  .col-md-6.offset-md-3
+    .m-5.text-center
+      i = t('.step_2_description')
+.row
+  .col-md-4
+    .sticky-md-top
+      .py-5
+        = simple_format(current_recipe.body)
+
+  .col-md-8
+    = turbo_stream_from current_recipe
+    div id=dom_id(current_recipe)
+      - current_recipe.ingredient_groups.each do |ingredient_group|
+        = render partial: 'ingredient_group', locals: { ingredient_group: ingredient_group }
+
+    .row
+      .col-md-12
+        = turbo_frame_tag 'new_ingredient_group', src: new_profile_recipe_ingredient_group_path(current_recipe), target: "_top"
+
+        hr.my-5
+
+.space-40
+.row
+  .col-md-8.offset-md-4
+    = link_to t('continue'), recipe_path(current_recipe), class: 'btn btn-primary mx-auto'
+.space-40

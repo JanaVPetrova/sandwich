@@ -1,4 +1,4 @@
-tr id="#{dom_id recipe_ingredient}"
+tr
   td.col-sm-5 = recipe_ingredient.title
   td.col-sm-3 = recipe_ingredient.quantity
   td.col-sm-3 = I18n.t(recipe_ingredient.unit, scope: :units, count: recipe_ingredient.quantity)

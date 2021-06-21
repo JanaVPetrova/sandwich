@@ -1,0 +1,7 @@
+= turbo_frame_tag "edit_#{dom_id(@ingredient_group)}", target: '_top' do
+  = form_for [:profile, current_recipe, @ingredient_group] do |f|
+    .row
+      .col-sm-10
+        = f.text_field :title, class: 'form-control', placeholder: IngredientGroup.human_attribute_name(:title)
+      .col-sm-2
+        = f.submit t('save'), class: 'btn btn-primary'

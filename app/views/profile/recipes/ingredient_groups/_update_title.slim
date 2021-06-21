@@ -1,0 +1,6 @@
+= turbo_frame_tag "edit_#{dom_id(ingredient_group)}" do
+  h5.my-2
+    - if ingredient_group.title.present?
+      = ingredient_group.title
+    = link_to edit_profile_recipe_ingredient_group_path(current_recipe, ingredient_group) do
+      span.bi-pencil.mx-1

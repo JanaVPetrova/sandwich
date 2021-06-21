@@ -1,0 +1,31 @@
+= link_to "<- #{current_recipe.title}", recipe_path(id: current_recipe.id)
+
+.row
+  .col-sm-3
+    b = t('.title')
+  .col-sm-3
+    b = t('.protein_per_100_g')
+  .col-sm-3
+    b = t('.fat_per_100_g')
+  .col-sm-3
+    b = t('.carbs_per_100_g')
+
+- @recipe_ingredients.each do |recipe_ingredient|
+  = form_for recipe_ingredient, url: profile_recipe_recipe_ingredient_path(recipe_id: recipe_ingredient.recipe, id: recipe_ingredient.id) do |f|
+    .row.mt-2
+      .col-sm-3
+        = f.label recipe_ingredient.ingredient_title
+        - if Unit::TRIVIAL_UNITS.include?(recipe_ingredient.unit)
+          = f.label "(#{t('.in_1_unit_of_ingredient', unit: t(recipe_ingredient.unit, scope: 'units', count: 1))}"
+          = f.number_field :unit_mg, step: 'any', class: 'text-right small-number-field'
+          span = "#{t('g', scope: 'units', count: 1)})"
+      .col-sm-3
+        = f.number_field :protein_mg, step: 'any', class: 'text-right small-number-field'
+        span = t('g', scope: 'units', count: 1)
+      .col-sm-3
+        = f.number_field :fat_mg, step: 'any', class: 'text-right small-number-field'
+        span = t('g', scope: 'units', count: 1)
+      .col-sm-3
+        = f.number_field :carbohydrates_mg, step: 'any', class: 'text-right small-number-field'
+        span = t('g', scope: 'units', count: 1)
+    = f.submit t('save'), class: 'btn btn-primary'
