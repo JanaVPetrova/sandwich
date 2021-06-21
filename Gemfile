@@ -21,6 +21,7 @@ gem 'shrine'
 gem 'russian'
 gem 'interactor'
 gem 'redis'
+gem 'kaminari'
 
 gem 'image_processing', '~> 1.2'
 
@@ -28,6 +29,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   gem 'pry-byebug'
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do

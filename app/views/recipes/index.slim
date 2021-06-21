@@ -3,3 +3,4 @@
     - group.each do |recipe|
       .col-lg-3
         = render partial: 'shared/recipes/small_card', locals: { recipe: recipe }
+= paginate @recipes
