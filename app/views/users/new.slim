@@ -1,0 +1,13 @@
+.row 
+  .col-md-6.offset-md-3 
+    h4 Регистрация
+.row 
+  .col-md-6.offset-md-3 
+    = form_for :user, url: users_path do |f|
+      = f.email_field :email, placeholder: 'Email', class: 'form-control mb-1'
+      = f.text_field :name, placeholder: 'Имя', class: 'form-control mb-1'
+      = f.password_field :password, placeholder: 'Пароль', class: 'form-control mb-1'
+      = f.password_field :password_confirmation, placeholder: 'Подтвердить пароль', class: 'form-control mb-1'
+      = f.submit 'Зарегистрироваться', class: 'btn btn-success'
+      span 
+        = link_to 'Войти', new_session_path
