@@ -34,6 +34,10 @@ group :development, :test do
   gem 'faker'
 end
 
+group :test do
+  gem 'database_cleaner-active_record'
+end
+
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'

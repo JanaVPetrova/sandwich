@@ -117,6 +117,14 @@ ru:
       recipe:
         to_imperial: В имперскую систему мер
         to_metric: В метрическую систему мер
+  users:
+    new:
+      email: Электронная почта
+      name: Имя
+      password: Пароль
+      password_confirmation: Подтвердить пароль
+      registration: Зарегистрироваться
+      sign_in: Войти
   activerecord:
     attributes:
       recipe:
