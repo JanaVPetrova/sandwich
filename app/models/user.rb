@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :recipes
 
-  before_save :downcase_email
+  before_validation :downcase_email
 
   has_secure_password
 
