@@ -1,6 +1,7 @@
 class Recipe < ApplicationRecord
   include ImageUploader::Attachment(:image)
 
+  belongs_to :user
   has_many :ingredient_groups
   has_many :recipe_ingredients, through: :ingredient_groups
   has_many :ingredients, through: :recipe_ingredients
