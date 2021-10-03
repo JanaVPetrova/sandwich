@@ -14,6 +14,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Set up PostgreSQL
+        uses: Harmon758/postgresql-action@v1.0.0
+        with:
+          postgresql user: test
+          postgresql password: test
+
       - name: Set up Ruby
         uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
@@ -25,17 +31,8 @@ jobs:
       - name: Rubocop
         run: rubocop
 
-      - name: Set up PostgreSQL
-        uses: Harmon758/postgresql-action@v1.0.0
-        with:
-          postgresql user: test
-          postgresql password: test
-
-      - name: Setup database.yml
-        run: cp config/database.yml.example config/database.yml
-
-      - name: Setup database
-        run: bundle exec rails db:create db:schema:load
+      - name: Setup DB
+        run: cp config/database.yml.example config/database.yml && bundle exec rails db:create db:schema:load
 
       - name: Run tests
         run: bundle exec rspec
