@@ -41,5 +41,8 @@ jobs:
           cp config/database.yml.example config/database.yml
           RAILS_ENV=test bundle exec rails db:schema:load
 
+      - name: Compile assets
+        run: RAILS_ENV=test bundle exec rails webpacker:compile
+
       - name: Run tests
         run: bundle exec rspec
