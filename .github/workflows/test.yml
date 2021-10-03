@@ -41,7 +41,7 @@ jobs:
           bundle install
 
       - name: Rubocop
-        run: rubocop
+        run: bundle exec rubocop
 
       - name: Setup DB
         run: |
