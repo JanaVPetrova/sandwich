@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Profile::RecipesController do
   describe 'GET #new' do
     subject { get :new }
@@ -6,6 +8,7 @@ RSpec.describe Profile::RecipesController do
 
     context 'when user logged-in' do
       before { sign_in user }
+
       it { is_expected.to have_http_status :ok }
     end
 
@@ -16,11 +19,13 @@ RSpec.describe Profile::RecipesController do
 
   describe 'GET #show' do
     subject { get :show, params: { id: recipe.id } }
+
     let(:user) { create :user }
     let(:recipe) { create :recipe, user: user }
 
     context 'when user logged-in' do
       before { sign_in user }
+
       it { is_expected.to have_http_status :ok }
     end
 
@@ -46,15 +51,15 @@ RSpec.describe Profile::RecipesController do
       it { is_expected.to have_http_status :not_found }
     end
 
-    describe 'when user logged-in' do
+    context 'when user logged-in' do
       before { sign_in user }
 
-      it 'valid params' do
-        is_expected.to redirect_to(profile_recipe_ingredient_groups_path(Recipe.last))
-        is_expected.to have_http_status :found
+      it 'succeeds' do
+        expect(subject).to redirect_to(profile_recipe_ingredient_groups_path(Recipe.last))
+        expect(subject).to have_http_status :found
       end
 
-      context 'invalid params' do
+      context 'when invalid params passed' do
         let(:params) do
           {
             recipe: {
@@ -63,6 +68,7 @@ RSpec.describe Profile::RecipesController do
             }
           }
         end
+
         it { is_expected.to have_http_status :ok }
       end
     end

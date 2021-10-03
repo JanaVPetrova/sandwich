@@ -1,15 +1,19 @@
-class Profile::ApplicationController < ApplicationController
-  class UnauthorizedError < StandardError; end
+# frozen_string_literal: true
 
-  before_action :authenticate!
+module Profile
+  class ApplicationController < ApplicationController
+    class UnauthorizedError < StandardError; end
 
-  rescue_from UnauthorizedError, with: :unauthorized
+    before_action :authenticate!
 
-  def authenticate!
-    raise UnauthorizedError unless current_user
-  end
+    rescue_from UnauthorizedError, with: :unauthorized
 
-  def unauthorized
-    head :not_found
+    def authenticate!
+      raise UnauthorizedError unless current_user
+    end
+
+    def unauthorized
+      head :not_found
+    end
   end
 end

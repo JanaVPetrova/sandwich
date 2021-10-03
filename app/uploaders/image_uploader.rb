@@ -16,8 +16,8 @@ class ImageUploader < Shrine
 
     # the :original file should NOT be included anymore
     {
-      large:  magick.resize_to_fill!(800, 600),
-      thumb:  magick.resize_to_fill!(400, 300),
+      large: magick.resize_to_fill!(800, 600),
+      thumb: magick.resize_to_fill!(400, 300)
     }
   end
 end
