@@ -35,7 +35,9 @@ jobs:
         run: rubocop
 
       - name: Setup DB
-        run: cp config/database.yml.example config/database.yml && bundle exec rails db:create db:schema:load
+        run: |
+          cp config/database.yml.example config/database.yml
+          RAILS_ENV=teset bundle exec rails db:create db:schema:load
 
       - name: Run tests
         run: bundle exec rspec
