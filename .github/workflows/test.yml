@@ -19,17 +19,27 @@ jobs:
           sudo systemctl start postgresql.service
           pg_isready
 
-      - name: Create additional user
+      - name: Create user and DB
         run: |
           sudo -u postgres psql --command="CREATE USER test PASSWORD 'test'" --command="\du"
+          sudo -u postgres createdb --owner=test sandwich_test
+          PGPASSWORD=test psql --username=test --host=localhost --list timetable
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
           ruby-version: 2.7.3
 
+      - uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: ${{ runner.os }}-gems-
+
       - name: Install dependencies
-        run: bundle install
+        run: |
+          bundle config path vendor/bundle
+          bundle install
 
       - name: Rubocop
         run: rubocop
@@ -37,7 +47,7 @@ jobs:
       - name: Setup DB
         run: |
           cp config/database.yml.example config/database.yml
-          RAILS_ENV=test bundle exec rails db:create db:schema:load
+          RAILS_ENV=test bundle exec rails db:schema:load
 
       - name: Run tests
         run: bundle exec rspec
