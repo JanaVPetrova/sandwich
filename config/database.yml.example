@@ -11,7 +11,5 @@ development:
 
 test:
   <<: *default
-  database: sandwich_test
-  username: test
-  password: test
+  url: postgres://test:test@localhost/sandwich_test
 
