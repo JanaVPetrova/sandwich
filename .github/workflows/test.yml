@@ -25,11 +25,17 @@ jobs:
       - name: Rubocop
         run: rubocop
 
+      - name: Set up PostgreSQL
+        uses: Harmon758/postgresql-action@v1.0.0
+        with:
+          postgresql user: test
+          postgresql password: test
+
       - name: Setup database.yml
         run: cp config/database.yml.example config/database.yml
 
-      - name: Set up PostgreSQL
-        uses: Harmon758/postgresql-action@v1.0.0
+      - name: Setup database
+        run: bundle exec rails db:create db:schema:load
 
       - name: Run tests
         run: bundle exec rspec
