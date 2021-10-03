@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe SessionsController do
   describe 'GET #new' do
     subject { get :new }
@@ -20,7 +22,7 @@ RSpec.describe SessionsController do
       end
 
       it 'signs in' do
-        is_expected.to redirect_to root_path
+        expect(subject).to redirect_to root_path
         expect(current_user).to eq user
       end
     end
@@ -34,7 +36,7 @@ RSpec.describe SessionsController do
       end
 
       it do
-        is_expected.to have_http_status :ok
+        expect(subject).to have_http_status :ok
         expect(current_user).to be_nil
       end
     end
