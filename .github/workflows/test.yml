@@ -13,13 +13,23 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
       - name: Set up Ruby
         uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
           ruby-version: 2.7.3
+
       - name: Install dependencies
         run: bundle install
+
       - name: Rubocop
         run: rubocop
+
+      - name: Setup database.yml
+        run: cp config/database.yml.example config/database.yml
+
+      - name: Set up PostgreSQL
+        uses: Harmon758/postgresql-action@v1.0.0
+
       - name: Run tests
         run: bundle exec rspec

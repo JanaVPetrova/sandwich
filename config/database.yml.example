@@ -13,8 +13,3 @@ test:
   <<: *default
   database: sandwich_test
 
-production:
-  <<: *default
-  database: sandwich_production
-  username: sandwich
-  password: <%= ENV['SANDWICH_DATABASE_PASSWORD'] %>
