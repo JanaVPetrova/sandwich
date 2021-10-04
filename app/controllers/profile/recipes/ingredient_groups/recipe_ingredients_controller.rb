@@ -19,7 +19,7 @@ module Profile
             format.html { redirect_to profile_recipe_ingredient_groups_path(current_recipe) }
             format.turbo_stream do
               render(
-                turbo_stream: turbo_stream.append(
+                turbo_stream: turbo_stream.replace(
                   "ingredient_group_#{current_ingredient_group.id}_list",
                   partial: 'shared/recipe_ingredients',
                   locals: { ingredient_group: current_ingredient_group }

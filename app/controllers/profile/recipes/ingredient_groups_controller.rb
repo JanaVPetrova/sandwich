@@ -42,7 +42,7 @@ module Profile
 
         respond_to do |format|
           format.turbo_stream do
-            render turbo_stream: turbo_stream.append(
+            render turbo_stream: turbo_stream.replace(
               "edit_ingredient_group_#{@ingredient_group.id}",
               partial: 'profile/recipes/ingredient_groups/update_title',
               locals: { ingredient_group: @ingredient_group }
