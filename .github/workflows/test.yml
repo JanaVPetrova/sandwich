@@ -42,7 +42,10 @@ jobs:
           RAILS_ENV=test bundle exec rails db:schema:load
 
       - name: Compile assets
-        run: RAILS_ENV=test bin/webpack
+        run: |
+          npm install
+          yarn install check--files
+          RAILS_ENV=test bin/webpack
 
       - name: Run tests
         run: bundle exec rspec
