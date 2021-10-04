@@ -1813,6 +1813,11 @@ chalk@^2.0, chalk@^2.0.0, chalk@^2.4.1, chalk@^2.4.2:
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
 
+check@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/check/-/check-1.0.0.tgz#3ecf5f0c861eb9bae78ced297239083acf181ab9"
+  integrity sha1-Ps9fDIYeubrnjO0pcjkIOs8YGrk=
+
 "chokidar@>=3.0.0 <4.0.0", chokidar@^3.4.1, chokidar@^3.5.1:
   version "3.5.2"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.2.tgz#dba3976fcadb016f66fd365021d91600d01c1e75"
