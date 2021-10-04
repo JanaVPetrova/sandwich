@@ -44,7 +44,7 @@ jobs:
       - name: Compile assets
         run: |
           npm install
-          yarn install check--files
+          yarn add check--files
           RAILS_ENV=test bin/webpack
 
       - name: Run tests
