@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
@@ -8,8 +10,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def new
-  end
+  def new; end
 
   private
 

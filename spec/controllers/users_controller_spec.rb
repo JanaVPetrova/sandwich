@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe UsersController do
   describe 'GET #new' do
     subject { get :new }
@@ -20,9 +22,9 @@ RSpec.describe UsersController do
     end
 
     it 'when user created' do
-      expect { subject }.to change { User.count }.by(1)
-      is_expected.to redirect_to(new_session_path)
-      is_expected.to have_http_status :found
+      expect { subject }.to change(User, :count).by(1)
+      expect(subject).to redirect_to(new_session_path)
+      expect(subject).to have_http_status :found
     end
 
     context 'when params are invalid' do
@@ -38,8 +40,8 @@ RSpec.describe UsersController do
       end
 
       it do
-        expect { subject }.to_not change { User.count }
-        is_expected.to have_http_status :ok
+        expect { subject }.not_to change(User, :count)
+        expect(subject).to have_http_status :ok
       end
     end
   end

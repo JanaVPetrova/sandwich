@@ -1,0 +1,51 @@
+name: Ruby
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Start PostgreSQL on Ubuntu
+        run: |
+          sudo systemctl start postgresql.service
+          pg_isready
+
+      - name: Create user and DB
+        run: |
+          sudo -u postgres psql --command="CREATE USER test PASSWORD 'test'" --command="\du"
+          sudo -u postgres createdb --owner=test sandwich_test
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+        with:
+          ruby-version: 2.7.3
+          bundler-cache: true
+
+      - name: Install dependencies
+        run: bundle install
+
+      - name: Rubocop
+        run: bundle exec rubocop
+
+      - name: Setup DB
+        run: |
+          cp config/database.yml.example config/database.yml
+          RAILS_ENV=test bundle exec rails db:schema:load
+
+      - name: Compile assets
+        run: |
+          npm install
+          yarn add check --files
+          RAILS_ENV=test bin/webpack
+
+      - name: Run tests
+        run: bundle exec rspec

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe User do
   subject {
     described_class.new(
@@ -10,17 +12,17 @@ RSpec.describe User do
 
   it 'name should be at lest 4 symbols' do
     subject.name = 'Foo'
-    expect(subject).to_not be_valid
+    expect(subject).not_to be_valid
   end
 
   it 'name should not be to long' do
     subject.name = 'a' * 31
-    expect(subject).to_not be_valid
+    expect(subject).not_to be_valid
   end
 
   it 'name should be presence' do
     subject.name = ' ' * 4
-    expect(subject).to_not be_valid
+    expect(subject).not_to be_valid
   end
 
   it 'email validation should accept valid addresses' do
@@ -33,12 +35,12 @@ RSpec.describe User do
 
   it 'email should be presence' do
     subject.email = '  '
-    expect(subject).to_not be_valid
+    expect(subject).not_to be_valid
   end
 
   it 'email should be not be to long' do
     subject.email = ' ' * 255
-    expect(subject).to_not be_valid
+    expect(subject).not_to be_valid
   end
 
   it 'email should be saved as lower-case' do
@@ -49,11 +51,11 @@ RSpec.describe User do
 
   it 'password should be at lest 6 symbols' do
     subject.password = subject.password_confirmation = 'a' * 5
-    expect(subject).to_not be_valid
+    expect(subject).not_to be_valid
   end
 
   it 'password should be presence' do
     subject.password = subject.password_confirmation = ' ' * 6
-    expect(subject).to_not be_valid
+    expect(subject).not_to be_valid
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe RecipesController do
   describe 'GET #index' do
     subject { get :index }

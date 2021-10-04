@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
@@ -11,6 +13,6 @@ RSpec.configure do |config|
   config.order = :random
   config.disable_monkey_patching!
   config.profile_examples = 10
-  config.example_status_persistence_file_path = "spec/examples.txt"
+  config.example_status_persistence_file_path = 'spec/examples.txt'
   Kernel.srand config.seed
 end

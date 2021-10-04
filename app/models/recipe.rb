@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 class Recipe < ApplicationRecord
   include ImageUploader::Attachment(:image)
 
-  has_many :ingredient_groups
+  belongs_to :user
+  has_many :ingredient_groups, dependent: :destroy
   has_many :recipe_ingredients, through: :ingredient_groups
   has_many :ingredients, through: :recipe_ingredients
 
