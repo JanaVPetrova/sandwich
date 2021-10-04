@@ -10,16 +10,6 @@ RSpec.describe User do
     )
   }
 
-  it 'name should be at lest 4 symbols' do
-    subject.name = 'Foo'
-    expect(subject).not_to be_valid
-  end
-
-  it 'name should not be to long' do
-    subject.name = 'a' * 31
-    expect(subject).not_to be_valid
-  end
-
   it 'name should be presence' do
     subject.name = ' ' * 4
     expect(subject).not_to be_valid
