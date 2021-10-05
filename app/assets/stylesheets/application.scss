@@ -1,8 +1,19 @@
-@import "bootstrap";
-@import "bootstrap-icons";
-
 $primary: #A1221A;
 $secondary: #E58F8A;
+
+$theme-colors: (
+  "primary": #A1221A,
+  "secondary": #E58F8A,
+  "success": #A1221A,
+  "danger": #E58F8A
+);
+
+@import "bootstrap";
+@import "bootstrap-icons";
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+
 
 .page-container {
   position: relative;
@@ -51,27 +62,7 @@ $secondary: #E58F8A;
 }
 
 .btn {
-  border-radius: 20px;
-}
-
-.btn-primary {
-  background-color: $primary;
-  border-color: $primary;
-}
-
-.btn-primary:hover {
-  background-color: $primary;
-  border-color: $primary;
-}
-
-.btn-secondary {
-  background-color: $secondary;
-  border-color: $secondary;
-}
-
-.btn-secondary:hover {
-  background-color: $secondary;
-  border-color: $secondary;
+  border-radius: 6rem;
 }
 
 .space-40 {
@@ -80,6 +71,10 @@ $secondary: #E58F8A;
 
 .space-20 {
   height: 20px;
+}
+
+.space-10 {
+  height: 10px;
 }
 
 .progress-step {
