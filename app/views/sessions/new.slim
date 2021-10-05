@@ -3,7 +3,7 @@
     h4 Вход
 .row
   .col-md-6.offset-md-3
-    = form_for :session, url: session_path do |f|
+    = form_for :session, url: session_path, data: { turbo: false } do |f|
       = f.text_field :email, placeholder: 'Email', class: 'form-control mb-1'
       = f.password_field :password, placeholder: 'Пароль', class: 'form-control mb-1'
       = f.submit 'Войти', class: 'btn btn-success'

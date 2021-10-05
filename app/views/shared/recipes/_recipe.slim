@@ -17,19 +17,19 @@
   .col-md-4
     h3
       = Recipe.human_attribute_name(:ingredients)
-    table.table.table-sm.table-hover.table-borderless.w-100
-      - recipe.ingredient_groups.each do |ingredient_group|
-        - if ingredient_group.title
-          h5 = ingredient_group.title
-        - ingredient_group.recipe_ingredients.each do |recipe_ingredient|
-          tr
-            td.text-capitalize
-              = recipe_ingredient.ingredient_title
-            td.text-end
-              span.visible
-                = recipe_ingredient.metric_quantity
-              span.invisible
-                = recipe_ingredient.imperial_quantity
+    - recipe.ingredient_groups.each do |ingredient_group|
+      - if ingredient_group.title
+        h5 = ingredient_group.title
+        table.table.table-sm.table-striped.table-borderless.w-100
+          - ingredient_group.recipe_ingredients.each do |recipe_ingredient|
+            tr
+              td.text-capitalize
+                = recipe_ingredient.ingredient_title
+              td.text-end
+                span.visible
+                  = recipe_ingredient.metric_quantity
+                span.invisible
+                  = recipe_ingredient.imperial_quantity
 
   .col-md-8
     h3 = Recipe.human_attribute_name(:body)
