@@ -60,6 +60,9 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    after_commit_everywhere (1.1.0)
+      activerecord (>= 4.2)
+      activesupport
     ast (2.4.2)
     autoprefixer-rails (10.2.5.1)
       execjs (> 0)
@@ -295,6 +298,7 @@ PLATFORMS
 
 DEPENDENCIES
   aasm
+  after_commit_everywhere (~> 1.0)
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)
   bootstrap (~> 5.0.1)
