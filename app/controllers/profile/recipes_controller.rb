@@ -17,9 +17,18 @@ module Profile
       end
     end
 
-    def edit; end
+    def edit
+      @recipe = Recipe.find(params[:id])
+    end
 
-    def update; end
+    def update
+      @recipe = Recipe.find(params[:id])
+      if @recipe.update(recipe_params.slice(:description, :secret))
+        redirect_to profile_recipe_path(@recipe)
+      else
+        render 'edit'
+      end
+    end
 
     def show
       @recipe = current_user.recipes.find(params[:id])
@@ -28,7 +37,7 @@ module Profile
     private
 
     def recipe_params
-      params.require(:recipe).permit(:title, :body, :image)
+      params.require(:recipe).permit(:title, :body, :image, :description, :secret)
     end
   end
 end

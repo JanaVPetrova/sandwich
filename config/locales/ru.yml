@@ -96,6 +96,12 @@ ru:
       new:
         new_recipe: Новый рецепт
         step_1_description: Запишите процесс приготовления. Не беспокойтесь о количестве ингредиентов, их можно будет описать на втором шаге
+      edit:
+        step_3_description: Опишите рецепт
+        save: Сохранить
+        back: Назад
+        description: Расскажите об этом рецепте
+        secret: Это секретный рецепт
       ingredient_groups:
         index:
           title: Название
