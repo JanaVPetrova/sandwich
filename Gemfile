@@ -7,7 +7,7 @@ ruby '2.7.3'
 
 gem 'aasm'
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 4.1'
+gem 'puma', '~> 4.3'
 gem 'rails', '~> 6.1'
 gem 'sass-rails', '>= 6'
 gem 'webpacker'
