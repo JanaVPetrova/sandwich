@@ -14,6 +14,7 @@ gem 'webpacker'
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap', '~> 5.0.1'
+gem 'honeybadger'
 gem 'hotwire-rails'
 gem 'interactor'
 gem 'jbuilder', '~> 2.7'
