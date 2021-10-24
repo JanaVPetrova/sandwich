@@ -1,13 +1,13 @@
-.row 
-  .col-md-6.offset-md-3 
+.row
+  .col-md-6.offset-md-3
     h4 Регистрация
-.row 
-  .col-md-6.offset-md-3 
-    = form_for :user, url: users_path do |f|
+.row
+  .col-md-6.offset-md-3.text-center
+    = form_for :user, url: users_path, data: { turbo: false } do |f|
       = f.email_field :email, placeholder: t('.email'), class: 'form-control mb-1'
-      = f.text_field :name, placeholder: t('.name'), class: 'form-control mb-1'
       = f.password_field :password, placeholder: t('.password'), class: 'form-control mb-1'
       = f.password_field :password_confirmation, placeholder: t('.password_confirmation'), class: 'form-control mb-1'
+      .space-10
       = f.submit t('.registration'), class: 'btn btn-success'
-      span 
-        = link_to t('.sign_in'), new_session_path
+    .space-10
+    = link_to t('.sign_in'), new_session_path
