@@ -24,6 +24,8 @@ module Profile
     def update
       @recipe = Recipe.find(params[:id])
       if @recipe.update(recipe_params.slice(:description, :secret))
+        @recipe.publish! unless @recipe.published?
+
         redirect_to profile_recipe_path(@recipe)
       else
         render 'edit'

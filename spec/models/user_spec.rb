@@ -10,11 +10,6 @@ RSpec.describe User do
     )
   }
 
-  it 'name should be presence' do
-    subject.name = ' ' * 4
-    expect(subject).not_to be_valid
-  end
-
   it 'email validation should accept valid addresses' do
     valid_addresses = %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org first.last@foo.jp alice+bob@baz.cn]
     valid_addresses.each do |valid_address|
