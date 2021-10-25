@@ -4,7 +4,7 @@ $secondary: #E58F8A;
 $theme-colors: (
   "primary": #A1221A,
   "secondary": #E58F8A,
-  "success": #A1221A,
+  "success": #28a745,
   "danger": #E58F8A
 );
 
@@ -150,4 +150,16 @@ $theme-colors: (
 
 :root {
   --primary: $primary;
+}
+
+h1 {
+  a {
+    color: black;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: black;
+    text-decoration: none;
+  }
 }
