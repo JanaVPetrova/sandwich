@@ -73,4 +73,26 @@ RSpec.describe Profile::RecipesController do
       end
     end
   end
+
+  describe 'GET #edit' do
+    subject { get :edit, params: { id: recipe.id } }
+
+    let(:user) { create :user }
+    let(:recipe) { create :recipe, user: user }
+
+    before { sign_in user }
+
+    it { is_expected.to have_http_status :ok }
+  end
+
+  describe 'GET #edit_details' do
+    subject { get :edit_details, params: { id: recipe.id } }
+
+    let(:user) { create :user }
+    let(:recipe) { create :recipe, user: user }
+
+    before { sign_in user }
+
+    it { is_expected.to have_http_status :ok }
+  end
 end

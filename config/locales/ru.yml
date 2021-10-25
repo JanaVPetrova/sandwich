@@ -3,6 +3,7 @@ ru:
   save: Сохранить
   cancel: Отмена
   continue: Продолжить
+  back: Назад
   units:
     mg: мг
     g: г
@@ -97,6 +98,8 @@ ru:
         new_recipe: Новый рецепт
         step_1_description: Запишите процесс приготовления. Не беспокойтесь о количестве ингредиентов, их можно будет описать на втором шаге
       edit:
+        step_1_description: Запишите процесс приготовления. Не беспокойтесь о количестве ингредиентов, их можно будет описать на втором шаге
+      edit_details:
         step_3_description: Опишите рецепт
         save: Сохранить
         back: Назад
@@ -118,11 +121,19 @@ ru:
           fat_per_100_g: Жиров на 100 г
           carbs_per_100_g: Углеводов на 100 г
           in_1_unit_of_ingredient: 1 %{unit} весит
+      nutrition_facts:
+        ingredient_group:
+          protein: Белки, г
+          fat: Жиры, г
+          carbohydrates: Углеводы, г
   shared:
     recipes:
       recipe:
         to_imperial: В имперскую систему мер
         to_metric: В метрическую систему мер
+      nutrition_facts:
+        no_nutrition_facts_yet: Мы пока не рассчитали пищевую ценность
+        calculate: Рассчитать
   users:
     new:
       email: Электронная почта
@@ -131,6 +142,11 @@ ru:
       password_confirmation: Подтвердить пароль
       registration: Зарегистрироваться
       sign_in: Войти
+  nutrition_facts:
+    calories: Калории (на 100 г)
+    protein: Белки
+    fat: Жиры
+    carbs: Углеводы
   activerecord:
     attributes:
       recipe:

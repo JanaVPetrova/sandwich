@@ -4,9 +4,12 @@
 .row
   .col-md-4.offset-md-4
     .position-relative.m-4
-      .position-absolute.top-0.start-0.translate-middle.btn.btn-sm.rounded-pill.progress-step 1
+      .position-absolute.top-0.start-0.translate-middle.btn.btn-sm.rounded-pill.progress-step
+        = link_to '1', edit_profile_recipe_path(current_recipe)
       .position-absolute.top-0.start-50.translate-middle.btn.btn-sm.rounded-pill.progress-step-active 2
-      .position-absolute.top-0.start-100.translate-middle.btn.btn-sm.rounded-pill.progress-step 3
+      .position-absolute.top-0.start-100.translate-middle.btn.btn-sm.rounded-pill.progress-step
+        = link_to '3', edit_details_profile_recipe_path(current_recipe)
+
 .row
   .col-md-6.offset-md-3
     .m-5.text-center
@@ -32,5 +35,5 @@
 .space-40
 .row
   .col-md-8.offset-md-4
-    = link_to t('continue'), edit_profile_recipe_path(current_recipe), class: 'btn btn-primary mx-auto'
+    = link_to t('continue'), edit_details_profile_recipe_path(current_recipe), class: 'btn btn-primary mx-auto'
 .space-40

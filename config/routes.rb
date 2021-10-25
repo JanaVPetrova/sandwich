@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   namespace :profile do
     resources :home, only: :index
     resources :recipes do
+      get :edit_details, on: :member
+
       scope module: :recipes do
         resources :ingredient_groups, only: %i[index new create edit update] do
           scope module: :ingredient_groups do
@@ -15,6 +17,8 @@ Rails.application.routes.draw do
             end
           end
         end
+
+        resources :nutrition_facts, only: %i[index edit update]
       end
     end
 

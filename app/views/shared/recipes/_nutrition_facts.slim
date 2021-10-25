@@ -1,28 +1,28 @@
 .nutrition-facts
-  - if nutrition_facts_showable?(recipe)
+  - if recipe.nutrition_fact.present?
     table.w-100.text-center.table-md
       tr
         td.w-25.border-right.border-main
-          b = I18n.t('calories', scope: 'domain.recipes.nutrition_facts')
+          b = t('nutrition_facts.calories')
         td.w-25.border-right.border-main
-          = I18n.t('protein', scope: 'domain.recipes.nutrition_facts')
+          = t('nutrition_facts.protein')
         td.w-25.border-right.border-main
-          = I18n.t('fat', scope: 'domain.recipes.nutrition_facts')
+          = t('nutrition_facts.fat')
         td.w-25
-          = I18n.t('carbs', scope: 'domain.recipes.nutrition_facts')
+          = t('nutrition_facts.carbs')
       tr.border-top.border-main
         td.w-25.border-right.border-main
-          b =< calories(recipe.nutrition_facts.calories)
+          b =< recipe.nutrition_fact.calories.round
         td.w-25.border-right.border-main
-          =< nutrient(recipe.nutrition_facts.protein_mg)
+          =< recipe.nutrition_fact.protein_g.round(2)
         td.w-25.border-right.border-main
-          =< nutrient(recipe.nutrition_facts.fat_mg)
+          =< recipe.nutrition_fact.fat_g.round(2)
         td.w-25
-          =< nutrient(recipe.nutrition_facts.carbohydrates_mg)
+          =< recipe.nutrition_fact.carbohydrates_g.round(2)
   - else
     .mx-2
       i
         = t('.no_nutrition_facts_yet')
         - if can_edit_recipe?(recipe, current_user)
           | &nbsp;
-          = link_to "(#{I18n.t('calculate')})", routes.edit_profile_recipe_ingredients_path(recipe.id), class: 'small text-muted'
+          = link_to "(#{t('.calculate')})", profile_recipe_nutrition_facts_path(recipe.id), class: 'small text-muted'

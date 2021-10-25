@@ -27,7 +27,24 @@ class Recipe < ApplicationRecord
     end
   end
 
+  def nutrition_fact
+    return if recipe_ingredients.blank?
+    return unless can_calculate_nutrition_fact?
+
+    @nutrition_fact ||= begin
+      total_weight_g = recipe_ingredients.sum(&:weight_g)
+
+      return if total_weight_g.zero?
+
+      recipe_ingredients.sum(&:nutrition_fact).scale(BigDecimal('100') / total_weight_g)
+    end
+  end
+
   private
+
+  def can_calculate_nutrition_fact?
+    recipe_ingredients.detect { |recipe_ingredient| recipe_ingredient.nutrition_fact.blank? }.nil?
+  end
 
   def generate_image_derivatives
     return if image_data.blank?

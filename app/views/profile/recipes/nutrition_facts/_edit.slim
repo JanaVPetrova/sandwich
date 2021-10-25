@@ -1,0 +1,13 @@
+= turbo_frame_tag "edit_#{dom_id(recipe_ingredient)}" do
+  = form_for recipe_ingredient, url: profile_recipe_nutrition_fact_path(recipe_ingredient.recipe, recipe_ingredient) do |f|
+    .row.mt-1
+      .col-md-3
+        = recipe_ingredient.title
+      .col-md-2
+        = f.number_field :protein_g, step: :any
+      .col-md-2
+        = f.number_field :fat_g, step: :any
+      .col-md-2
+        = f.number_field :carbohydrates_g, step: :any
+      .col-md-2
+        = f.submit t('save'), class: 'btn btn-sm btn-success'

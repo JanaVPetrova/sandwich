@@ -1,0 +1,35 @@
+.row
+  .col-md-12
+    h1 = @recipe.title
+.row
+  .col-md-4.offset-md-4
+    .position-relative.m-4
+      .position-absolute.top-0.start-0.translate-middle.btn.btn-sm.rounded-pill.progress-step
+        = link_to '1', edit_profile_recipe_path(@recipe)
+      .position-absolute.top-0.start-50.translate-middle.btn.btn-sm.rounded-pill.progress-step
+        = link_to '2', profile_recipe_ingredient_groups_path(@recipe)
+      .position-absolute.top-0.start-100.translate-middle.btn.btn-sm.rounded-pill.progress-step-active 3
+
+.row
+  .col-md-6.offset-md-3
+    .m-5.text-center
+      i = t('.step_3_description')
+.row
+  .col-md-8.offset-md-2 data-turbo="false"
+    = form_for @recipe, url: profile_recipe_path do |f|
+      .form-group.mb-3
+        = f.label t('.description'), class: 'form-label'
+        = f.text_area :description, class: "form-control #{'is-invalid' if @recipe.errors.messages[:description].present?}", rows: 12
+        - if @recipe.errors.messages[:description].present?
+          .form-text.text-danger
+            = @recipe.errors.messages[:description].join(', ')
+
+      .form-group.mb-3
+        .form-check.form-switch
+          = f.label t('.secret'), class: 'form-check-label', for: 'flexSwitchCheckDefault'
+          = f.check_box :secret, class: 'form-check-input', id: 'flexSwitchCheckDefault'
+
+      .space-20
+      .form-group.text-center
+        = link_to t('.back'), profile_recipe_ingredient_groups_path(@recipe), class: 'btn btn-outline-primary me-5 w-25'
+        = f.submit t('.save'), class: 'btn btn-primary w-25'

@@ -21,6 +21,10 @@ module Profile
       @recipe = Recipe.find(params[:id])
     end
 
+    def edit_details
+      @recipe = Recipe.find(params[:id])
+    end
+
     def update
       @recipe = Recipe.find(params[:id])
       if @recipe.update(recipe_params.slice(:description, :secret))
