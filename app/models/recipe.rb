@@ -27,6 +27,8 @@ class Recipe < ApplicationRecord
     end
   end
 
+  scope :for_public, -> { where(secret: false).published }
+
   def nutrition_fact
     return if recipe_ingredients.blank?
     return unless can_calculate_nutrition_fact?

@@ -1,13 +1,21 @@
 = turbo_frame_tag "edit_#{dom_id(recipe_ingredient)}" do
   .row
-    .col-md-4
+    .col-md-5
       = recipe_ingredient.title
+      - if Unit::TRIVIAL_UNITS.include?(recipe_ingredient.unit)
+        |&nbsp;(
+        = t('.one_unit_weights', unit: I18n.t("units.#{recipe_ingredient.unit}", count: 1))
+        |&nbsp;
+        = recipe_ingredient.unit_g || '?'
+        |&nbsp;
+        =I18n.t("units.g")
+        |)
     .col-md-2.text-center
       = recipe_ingredient.protein_g
     .col-md-2.text-center
       = recipe_ingredient.fat_g
     .col-md-2.text-center
       = recipe_ingredient.carbohydrates_g
-    .col-md-2
+    .col-md-1
       = link_to edit_profile_recipe_nutrition_fact_path(current_recipe, recipe_ingredient) do
         span.bi-pencil.mx-1

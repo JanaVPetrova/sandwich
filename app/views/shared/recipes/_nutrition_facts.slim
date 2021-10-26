@@ -4,21 +4,23 @@
       tr
         td.w-25.border-right.border-main
           b = t('nutrition_facts.calories')
+          br
+          i = t('nutrition_facts.per_100_g')
         td.w-25.border-right.border-main
-          = t('nutrition_facts.protein')
+          b = t('nutrition_facts.protein')
         td.w-25.border-right.border-main
-          = t('nutrition_facts.fat')
+          b = t('nutrition_facts.fat')
         td.w-25
-          = t('nutrition_facts.carbs')
+          b = t('nutrition_facts.carbs')
       tr.border-top.border-main
         td.w-25.border-right.border-main
-          b =< recipe.nutrition_fact.calories.round
+          b = t('nutrition_facts.kkal', count: recipe.nutrition_fact.calories.round)
         td.w-25.border-right.border-main
-          =< recipe.nutrition_fact.protein_g.round(2)
+          = t('nutrition_facts.g', count: recipe.nutrition_fact.protein_g.round(2))
         td.w-25.border-right.border-main
-          =< recipe.nutrition_fact.fat_g.round(2)
+          = t('nutrition_facts.g', count: recipe.nutrition_fact.fat_g.round(2))
         td.w-25
-          =< recipe.nutrition_fact.carbohydrates_g.round(2)
+          = t('nutrition_facts.g', count: recipe.nutrition_fact.carbohydrates_g.round(2))
   - else
     .mx-2
       i

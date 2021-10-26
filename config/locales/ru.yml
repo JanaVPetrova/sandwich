@@ -126,6 +126,10 @@ ru:
           protein: Белки, г
           fat: Жиры, г
           carbohydrates: Углеводы, г
+        edit:
+          one_unit_weights: "1 %{unit} весит"
+        recipe_ingredient_row:
+          one_unit_weights: "1 %{unit} весит"
   shared:
     recipes:
       recipe:
@@ -143,10 +147,13 @@ ru:
       registration: Зарегистрироваться
       sign_in: Войти
   nutrition_facts:
-    calories: Калории (на 100 г)
+    calories: Калории
     protein: Белки
     fat: Жиры
     carbs: Углеводы
+    per_100_g: (на 100 г)
+    kkal: '%{count} ккал'
+    g: '%{count} г'
   activerecord:
     attributes:
       recipe:

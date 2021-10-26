@@ -1,13 +1,21 @@
 = turbo_frame_tag "edit_#{dom_id(recipe_ingredient)}" do
   = form_for recipe_ingredient, url: profile_recipe_nutrition_fact_path(recipe_ingredient.recipe, recipe_ingredient) do |f|
     .row.mt-1
-      .col-md-3
+      .col-md-5
         = recipe_ingredient.title
+        - if Unit::TRIVIAL_UNITS.include?(recipe_ingredient.unit)
+          |&nbsp;(
+          = t('.one_unit_weights', unit: I18n.t("units.#{recipe_ingredient.unit}", count: 1))
+          |&nbsp;
+          = f.number_field :unit_g, step: :any, class: 'form-control w-25 d-inline'
+          |&nbsp;
+          =I18n.t('units.g')
+          |)
       .col-md-2
-        = f.number_field :protein_g, step: :any
+        = f.number_field :protein_g, step: :any, class: 'form-control'
       .col-md-2
-        = f.number_field :fat_g, step: :any
+        = f.number_field :fat_g, step: :any, class: 'form-control'
       .col-md-2
-        = f.number_field :carbohydrates_g, step: :any
-      .col-md-2
+        = f.number_field :carbohydrates_g, step: :any, class: 'form-control'
+      .col-md-1
         = f.submit t('save'), class: 'btn btn-sm btn-success'

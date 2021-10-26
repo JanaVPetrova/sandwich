@@ -2,7 +2,7 @@
 
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.where(state: 'published').page(params[:page]).per(20)
+    @recipes = Recipe.for_public.page(params[:page]).per(20)
   end
 
   def show
