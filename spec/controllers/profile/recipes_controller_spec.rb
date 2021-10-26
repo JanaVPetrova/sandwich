@@ -95,4 +95,21 @@ RSpec.describe Profile::RecipesController do
 
     it { is_expected.to have_http_status :ok }
   end
+
+  describe 'PUT #update' do
+    subject { put :update, params: { id: recipe.id, recipe: params } }
+
+    let(:recipe) { create :recipe }
+    let(:params) { attributes_for(:recipe) }
+
+    before do
+      sign_in recipe.user
+    end
+
+    it do
+      expect { subject }.to change { recipe.reload.attributes.symbolize_keys.slice(*params.keys) }.to(params)
+
+      is_expected.to be_redirect
+    end
+  end
 end
