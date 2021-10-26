@@ -40,7 +40,7 @@ class RecipeIngredient < ApplicationRecord
     return unless weight_g
     return unless protein_g && fat_g && carbohydrates_g
 
-    @nutrition_fact ||= NutritionFact.new(protein_g, fat_g, carbohydrates_g).scale(weight_g)
+    @nutrition_fact ||= NutritionFact.new(protein_g, fat_g, carbohydrates_g).scale(weight_g / 100)
   end
 
   private
