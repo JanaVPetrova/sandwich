@@ -34,6 +34,8 @@ class RecipeIngredient < ApplicationRecord
 
       BigDecimal(value.to_s)
     end
+  rescue Unit::ConversionError
+    nil
   end
 
   def nutrition_fact
