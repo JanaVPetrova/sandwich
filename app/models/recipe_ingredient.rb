@@ -30,9 +30,7 @@ class RecipeIngredient < ApplicationRecord
         {}
       end
 
-      value = Unit.new(quantity, unit, conversion_map).convert_to_grams.quantity
-
-      BigDecimal(value.to_s)
+      Unit.new(quantity, unit, conversion_map).convert_to_grams.quantity
     end
   rescue Unit::ConversionError
     nil

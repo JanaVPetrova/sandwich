@@ -13,15 +13,11 @@ module Profile
         @recipe_ingredient = current_recipe.recipe_ingredients.find(params[:id])
         @recipe_ingredient.update(recipe_ingredient_params)
 
-        respond_to do |format|
-          format.turbo_stream do
-            render turbo_stream: turbo_stream.replace(
-              "edit_recipe_ingredient_#{@recipe_ingredient.id}",
-              partial: 'profile/recipes/nutrition_facts/recipe_ingredient_row',
-              locals: { recipe_ingredient: @recipe_ingredient }
-            )
-          end
-        end
+        render turbo_stream: turbo_stream.replace(
+          "edit_recipe_ingredient_#{@recipe_ingredient.id}",
+          partial: 'profile/recipes/nutrition_facts/recipe_ingredient_row',
+          locals: { recipe_ingredient: @recipe_ingredient }
+        )
       end
 
       private
