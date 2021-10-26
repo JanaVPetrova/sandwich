@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_05_143832) do
+ActiveRecord::Schema.define(version: 2021_10_25_204007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(version: 2021_10_05_143832) do
   end
 
   create_table "recipe_ingredients", id: :serial, force: :cascade do |t|
-    t.integer "recipe_id", null: false
     t.integer "ingredient_id"
     t.decimal "quantity", default: "0.0"
     t.text "unit", null: false
@@ -45,6 +44,10 @@ ActiveRecord::Schema.define(version: 2021_10_05_143832) do
     t.decimal "unit_mg"
     t.text "title"
     t.integer "ingredient_group_id"
+    t.decimal "carbohydrates_g"
+    t.decimal "fat_g"
+    t.decimal "protein_g"
+    t.decimal "unit_g"
   end
 
   create_table "recipes", id: :serial, force: :cascade do |t|
@@ -90,7 +93,6 @@ ActiveRecord::Schema.define(version: 2021_10_05_143832) do
   add_foreign_key "ingredient_groups", "recipes", name: "ingredient_groups_recipe_id_fkey", on_delete: :cascade
   add_foreign_key "recipe_ingredients", "ingredient_groups", name: "recipe_ingredients_ingredient_group_id_fkey"
   add_foreign_key "recipe_ingredients", "ingredients", name: "recipe_ingredients_ingredient_id_fkey", on_delete: :cascade
-  add_foreign_key "recipe_ingredients", "recipes", name: "recipe_ingredients_recipe_id_fkey", on_delete: :cascade
   add_foreign_key "recipes", "users", name: "recipes_user_id_fkey"
   add_foreign_key "shopping_list_items", "ingredients", name: "shopping_list_items_ingredient_id_fkey", on_delete: :cascade
   add_foreign_key "shopping_list_items", "shopping_lists", name: "shopping_list_items_shopping_list_id_fkey", on_delete: :cascade

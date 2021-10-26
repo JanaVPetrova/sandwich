@@ -1,0 +1,12 @@
+.row
+  .col-md-12
+    h1 = link_to current_recipe.title, recipe_path(current_recipe)
+.space-10
+.row
+  = turbo_stream_from current_recipe
+  div id=dom_id(current_recipe)
+    - current_recipe.ingredient_groups.each do |ingredient_group|
+      = render partial: 'ingredient_group', locals: { ingredient_group: ingredient_group }
+
+.row.text-center
+  = link_to t('back'), recipe_path(current_recipe)

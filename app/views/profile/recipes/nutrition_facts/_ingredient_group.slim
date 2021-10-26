@@ -1,0 +1,18 @@
+- if ingredient_group.recipe_ingredients.any?
+  .row
+    .col-md-12
+      h4 = ingredient_group.title
+
+  .row.text-center
+    .col-md-4
+    .col-md-2
+      b = t('.protein')
+    .col-md-2
+      b = t('.fat')
+    .col-md-2
+      b = t('.carbohydrates')
+    .col-md-2
+  hr
+  - ingredient_group.recipe_ingredients.order(created_at: :asc).each do |recipe_ingredient|
+    = render partial: 'recipe_ingredient_row', locals: { recipe_ingredient: recipe_ingredient }
+    hr

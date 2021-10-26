@@ -10,9 +10,7 @@ module Profile
 
         # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
         def create
-          recipe_ingredient = current_ingredient_group.recipe_ingredients.new(
-            recipe_ingredient_params.merge(recipe_id: current_recipe.id)
-          )
+          recipe_ingredient = current_ingredient_group.recipe_ingredients.new(recipe_ingredient_params)
           recipe_ingredient.save
 
           respond_to do |format|
