@@ -11,7 +11,7 @@ html lang='en'
   body
     header.header
     .page-container
-      nav.navbar.navbar-expand-lg.bg-main.mb-4 role="navigation"
+      nav.navbar.navbar-expand-lg.bg-main role="navigation"
         .container
           .navbar-header
             a href=recipes_path
@@ -36,6 +36,11 @@ html lang='en'
                   = link_to t('.sign_up'), new_user_path, class: 'nav-link btn-link'
                 li.nav-item
                   = link_to t('.sign_in'), new_session_path, class: 'nav-link btn-link'
+      = link_to 'https://www.patreon.com/sausage_sandwich', class: 'patreon-link' do
+        nav.navbar.patreon-banner.mb-4
+          .container-fluid.justify-content-center
+            = t('.support_on_patreon')
+            = image_tag('patreon-white.png', alt: 'Patreon', height: 30)
       .container.with-bottom
         main role='main'
           = yield
