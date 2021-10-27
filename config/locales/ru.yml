@@ -92,6 +92,7 @@ ru:
       sign_up: Зарегистрироваться
       sign_in: Войти
       sausage_sandwich_copyright: Бутерброд с колбасой, %{years}
+      support_on_patreon: Поддержите проект на
   profile:
     recipes:
       new:

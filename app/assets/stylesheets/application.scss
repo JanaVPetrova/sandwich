@@ -42,6 +42,18 @@ $theme-colors: (
   background-color: $secondary;
 }
 
+.patreon-banner {
+  height: 40px;
+  background-color: $primary;
+  padding: 0;
+}
+
+a {
+  .patreon-banner {
+    color: white;
+  }
+}
+
 .text-white {
   color: #FFFFFF;
 }
