@@ -328,6 +328,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   bootstrap (~> 5.0.1)
   capistrano
+  capistrano-bundler
   capistrano-rails
   capistrano-rbenv
   capistrano3-puma
