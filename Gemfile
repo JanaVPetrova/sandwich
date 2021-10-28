@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.3'
+ruby '2.7.4'
 
 gem 'aasm'
 gem 'pg', '>= 0.18', '< 2.0'
@@ -49,6 +49,8 @@ end
 group :development do
   gem 'capistrano', require: false
   gem 'capistrano3-puma', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rbenv', require: false
   gem 'listen', '~> 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
