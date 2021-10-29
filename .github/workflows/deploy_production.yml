@@ -1,12 +1,9 @@
-name: Ruby
-
 on:
-  pull_request:
+  push:
     branches: [ master ]
 
 jobs:
-  test:
-
+  deploy_production:
     runs-on: ubuntu-latest
 
     steps:
@@ -47,3 +44,11 @@ jobs:
 
       - name: Run tests
         run: bundle exec rspec
+
+      - name: Production deploy
+        uses: miloserdow/capistrano-deploy@v2.2
+        with:
+          target: production
+          deploy_key: ${{ secrets.DEPLOY_ENC_KEY }}
+
+
