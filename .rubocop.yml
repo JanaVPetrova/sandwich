@@ -60,9 +60,6 @@ Layout/EndAlignment:
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 
-Lint/RedundantSplatExpantion:
-  Enabled: false
-
 RSpec/NamedSubject:
   Enabled: false
 
