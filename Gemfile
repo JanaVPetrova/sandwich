@@ -2,8 +2,6 @@
 
 source 'https://rubygems.org'
 
-ruby '2.7.4'
-
 gem 'aasm'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.3'
