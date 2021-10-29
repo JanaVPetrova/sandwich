@@ -9,7 +9,11 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
 # Add Yarn node_modules folder to the asset load path.
 Rails.application.config.assets.paths << Rails.root.join('node_modules')
-Rails.application.config.assets.precompile += %w[bootstrap-icons.woff bootstrap-icons.woff2]
+Rails.application.config.assets.precompile += %w[
+  fonts/bootstrap-icons.woff
+  fonts/bootstrap-icons.woff2
+  images/favicon.ico
+]
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
