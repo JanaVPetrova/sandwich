@@ -46,7 +46,7 @@ jobs:
         run: bundle exec rspec
 
       - name: Production deploy
-        uses: miloserdow/capistrano-deploy@v2.2
+        uses: miloserdow/capistrano-deploy@master
         with:
           target: production
           deploy_key: ${{ secrets.DEPLOY_PRODUCTION }}
