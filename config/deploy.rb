@@ -11,4 +11,5 @@ set :puma_env, fetch(:rack_env, fetch(:rails_env, 'production'))
 set :bundle_flags, ''
 
 append :linked_files, 'config/database.yml', 'config/master.key'
-append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle',
+       '.bundle', 'public/system', 'public/uploads'

@@ -1,6 +1,6 @@
 .recipe-card
   a href=recipe_path(recipe)
     .card
-      img.card-img src=recipe.image_url(:thumb) style="display:block; width:100%; min-height:200px; background:url(./assets/recipe_placeholder.jpg); background-size: 100%"
+      img.card-img src=recipe.image_url(:thumb) style="display:block; width:100%; min-height:200px; background:url(#{asset_path('recipe_placeholder.jpg')}); background-size: 100%"
       .card-img-overlay.text-truncate.text-white
         = recipe.title
