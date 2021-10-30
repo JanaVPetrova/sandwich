@@ -29,6 +29,9 @@ Rails.application.routes.draw do
   resources :rooms do
     resources :messages
   end
+  resource :password, only: %i[show edit update] do
+    post :recover
+  end
 
   root to: 'recipes#index'
 end

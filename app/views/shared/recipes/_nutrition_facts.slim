@@ -6,6 +6,10 @@
           b = t('nutrition_facts.calories')
           br
           i = t('nutrition_facts.per_100_g')
+          - if can_edit_recipe?(recipe, current_user)
+            | &nbsp;
+            = link_to profile_recipe_nutrition_facts_path(recipe.id) do
+              span.bi-pencil.mx-1
         td.w-25.border-right.border-main
           b = t('nutrition_facts.protein')
         td.w-25.border-right.border-main

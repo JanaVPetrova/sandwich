@@ -37,10 +37,17 @@ html lang='en'
                 li.nav-item
                   = link_to t('.sign_in'), new_session_path, class: 'nav-link btn-link'
       = link_to 'https://www.patreon.com/sausage_sandwich', class: 'patreon-link' do
-        nav.navbar.patreon-banner.mb-4
+        nav.navbar.patreon-banner
           .container-fluid.justify-content-center
             = t('.support_on_patreon')
             = image_tag('patreon-white.png', alt: 'Patreon', height: 30)
+      .container.mt-1.mb-4
+        - if flash[:success].present?
+          .alert.alert-success role='alert'
+            = flash[:success]
+        - elsif flash[:error].present?
+          .alert.alert-danger role='alert'
+            = flash[:error]
       .container.with-bottom
         main role='main'
           = yield

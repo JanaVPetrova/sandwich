@@ -147,6 +147,28 @@ ru:
       password_confirmation: Подтвердить пароль
       registration: Зарегистрироваться
       sign_in: Войти
+  passwords:
+    errors:
+      no_user_with_this_email: Пользователь с таким email-ом не зарегистрирован
+    show:
+      password_reset: Восстановление пароля
+      recover_password: Восстановить пароль
+      sign_in: Войти
+    recover:
+      email_sent: Ссылка на сброс пароля отправлена на почту %{email}
+    edit:
+      password_reset: Сброс пароля
+      reset_password: Сбросить пароль
+      sign_in: Войти
+      new_password: Новый пароль
+      new_password_more: Подтверждение пароля
+    update:
+      password_reset: Новый пароль установлен
+  sessions:
+    new:
+      sign_in: Войти
+      sign_up: Зарегистрироваться
+      forgot_password: Забыли пароль?
   nutrition_facts:
     calories: Калории
     protein: Белки

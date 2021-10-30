@@ -1,0 +1,13 @@
+.row
+  .col-md-6.offset-md-3
+    h4 = t('.password_reset')
+.row
+  .col-md-6.offset-md-3.text-center
+    = form_for :password_reset, url: password_path, method: :patch, data: { turbo: false } do |f|
+      = f.text_field :token_value, value: params[:token_value], class: 'form-control mb-1', hidden: true
+      = f.password_field :password, placeholder: t('.new_password'), class: 'form-control mb-1'
+      = f.password_field :password_confirmation, placeholder: t('.new_password_more'), class: 'form-control mb-1'
+      .space-10
+      = f.submit t('.reset_password'), class: 'btn btn-primary'
+    .space-10
+    = link_to t('.sign_in'), new_session_path

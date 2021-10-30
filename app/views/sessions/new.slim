@@ -7,6 +7,8 @@
       = f.text_field :email, placeholder: 'Email', class: 'form-control mb-1'
       = f.password_field :password, placeholder: 'Пароль', class: 'form-control mb-1'
       .space-10
-      = f.submit 'Войти', class: 'btn btn-primary'
+      = f.submit t('.sign_in'), class: 'btn btn-primary'
     .space-10
-    = link_to 'Зарегистрироваться', new_user_path
+    = link_to t('.sign_up'), new_user_path
+    .space-10
+    = link_to t('.forgot_password'), password_path
