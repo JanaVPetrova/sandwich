@@ -1,0 +1,11 @@
+.row
+  .col-md-6.offset-md-3
+    h4 = t('.password_reset')
+.row
+  .col-md-6.offset-md-3.text-center
+    = form_for :password_reset, url: recover_password_path, data: { turbo: false } do |f|
+      = f.text_field :email, placeholder: 'Email', class: 'form-control mb-1'
+      .space-10
+      = f.submit t('.recover_password'), class: 'btn btn-primary'
+    .space-10
+    = link_to t('.sign_in'), new_session_path
