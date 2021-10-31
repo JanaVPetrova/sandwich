@@ -96,6 +96,7 @@ ru:
   user_mailer:
     reset_password:
       subject: Сброс пароля
+      reset_password: Установить новый пароль
   profile:
     recipes:
       new:
