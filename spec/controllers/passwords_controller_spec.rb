@@ -23,6 +23,7 @@ RSpec.describe PasswordsController do
       it 'creates a recovery token' do
         expect { subject }.to change { user.password_recovery_tokens.count }.by(1)
         is_expected.to be_redirect
+        expect(ActionMailer::Base.deliveries.last.to).to include(user.email)
       end
     end
 

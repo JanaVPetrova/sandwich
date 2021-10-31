@@ -9,7 +9,7 @@ module Users
     def call
       token = user.password_recovery_tokens.create!
 
-      UserMailer.reset_password(token).deliver_later
+      UserMailer.reset_password(token).deliver
     end
   end
 end
