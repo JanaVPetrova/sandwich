@@ -18,7 +18,7 @@ RSpec.describe Profile::RecipesController do
   end
 
   describe 'GET #show' do
-    subject { get :show, params: { id: recipe.id } }
+    subject { get :show, params: { slug: recipe.slug } }
 
     let(:user) { create :user }
     let(:recipe) { create :recipe, user: user }
@@ -75,7 +75,7 @@ RSpec.describe Profile::RecipesController do
   end
 
   describe 'GET #edit' do
-    subject { get :edit, params: { id: recipe.id } }
+    subject { get :edit, params: { slug: recipe.slug } }
 
     let(:user) { create :user }
     let(:recipe) { create :recipe, user: user }
@@ -86,7 +86,7 @@ RSpec.describe Profile::RecipesController do
   end
 
   describe 'GET #edit_details' do
-    subject { get :edit_details, params: { id: recipe.id } }
+    subject { get :edit_details, params: { slug: recipe.slug } }
 
     let(:user) { create :user }
     let(:recipe) { create :recipe, user: user }
@@ -97,7 +97,7 @@ RSpec.describe Profile::RecipesController do
   end
 
   describe 'PUT #update' do
-    subject { put :update, params: { id: recipe.id, recipe: params } }
+    subject { put :update, params: { slug: recipe.slug, recipe: params } }
 
     let(:recipe) { create :recipe }
     let(:params) { attributes_for(:recipe) }

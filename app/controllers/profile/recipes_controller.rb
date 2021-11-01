@@ -18,15 +18,15 @@ module Profile
     end
 
     def edit
-      @recipe = Recipe.find(params[:id])
+      @recipe = current_user.recipes.find_by!(slug: params[:slug])
     end
 
     def edit_details
-      @recipe = Recipe.find(params[:id])
+      @recipe = current_user.recipes.find_by!(slug: params[:slug])
     end
 
     def update
-      @recipe = Recipe.find(params[:id])
+      @recipe = current_user.recipes.find_by!(slug: params[:slug])
       if @recipe.update(recipe_params)
         @recipe.publish! unless @recipe.published?
 
@@ -37,7 +37,7 @@ module Profile
     end
 
     def show
-      @recipe = current_user.recipes.find(params[:id])
+      @recipe = current_user.recipes.find_by!(slug: params[:slug])
     end
 
     private

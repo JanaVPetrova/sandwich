@@ -12,7 +12,7 @@ RSpec.describe RecipesController do
   end
 
   describe 'GET #show' do
-    subject { get :show, params: { id: recipe.id } }
+    subject { get :show, params: { slug: recipe.slug } }
 
     let(:recipe) { create :recipe }
 

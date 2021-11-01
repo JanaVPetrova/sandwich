@@ -2,10 +2,10 @@
 
 RSpec.describe Profile::Recipes::IngredientGroupsController do
   describe 'GET #index' do
-    subject { get :index, params: { recipe_id: recipe_id } }
+    subject { get :index, params: { recipe_slug: recipe_slug } }
 
     let(:user) { create :user }
-    let(:recipe_id) { create :recipe, user: user }
+    let(:recipe_slug) { create :recipe, user: user }
 
     context 'when user logged-in' do
       before { sign_in user }
@@ -19,10 +19,10 @@ RSpec.describe Profile::Recipes::IngredientGroupsController do
   end
 
   describe 'GET #new' do
-    subject { get :new, params: { recipe_id: recipe_id } }
+    subject { get :new, params: { recipe_slug: recipe_slug } }
 
     let(:user) { create :user }
-    let(:recipe_id) { create :recipe, user: user }
+    let(:recipe_slug) { create :recipe, user: user }
 
     context 'when user logged-in' do
       before { sign_in user }
@@ -36,7 +36,7 @@ RSpec.describe Profile::Recipes::IngredientGroupsController do
   end
 
   describe 'POST #create' do
-    subject { post :create, params: { recipe_id: recipe.id, ingredient_group: params }, format: :turbo_stream }
+    subject { post :create, params: { recipe_slug: recipe.slug, ingredient_group: params }, format: :turbo_stream }
 
     let(:user) { create :user }
     let(:recipe) { create :recipe, user: user }
@@ -58,7 +58,7 @@ RSpec.describe Profile::Recipes::IngredientGroupsController do
   end
 
   describe 'GET #edit' do
-    subject { get :edit, params: { recipe_id: recipe.id, id: ingredient_group.id } }
+    subject { get :edit, params: { recipe_slug: recipe.slug, id: ingredient_group.id } }
 
     let(:user) { create :user }
     let(:recipe) { create :recipe, user: user }
@@ -76,7 +76,7 @@ RSpec.describe Profile::Recipes::IngredientGroupsController do
   end
 
   describe 'PATCH #update' do
-    subject { patch :edit, params: { recipe_id: recipe.id, id: ingredient_group.id, ingredient_group: params } }
+    subject { patch :edit, params: { recipe_slug: recipe.slug, id: ingredient_group.id, ingredient_group: params } }
 
     let(:user) { create :user }
     let(:recipe) { create :recipe, user: user }

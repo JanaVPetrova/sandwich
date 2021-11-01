@@ -6,7 +6,7 @@ module Profile
       helper_method :current_recipe
 
       def current_recipe
-        @current_recipe ||= current_user.recipes.find(params[:recipe_id])
+        @current_recipe ||= current_user.recipes.find_by!(slug: params[:recipe_slug])
       end
     end
   end

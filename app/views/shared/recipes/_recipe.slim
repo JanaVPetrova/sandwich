@@ -8,7 +8,7 @@
         h1.text-capitalize
           = recipe.title
           - if can_edit_recipe?(recipe, current_user)
-            = link_to I18n.t('edit'), edit_profile_recipe_path(recipe.id), class: 'btn btn-link btn-sm small text-muted'
+            = link_to I18n.t('edit'), edit_profile_recipe_path(recipe), class: 'btn btn-link btn-sm small text-muted'
     .row
       .col-md-12
         = render partial: 'shared/recipes/nutrition_facts', locals: { recipe: recipe }

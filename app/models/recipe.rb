@@ -11,7 +11,9 @@ class Recipe < ApplicationRecord
 
   validates :title, presence: true
   validates :body, presence: true
+  validates :slug, presence: true, uniqueness: true
 
+  before_validation :generate_slug
   after_create :generate_image_derivatives
 
   aasm column: :state do
@@ -42,6 +44,10 @@ class Recipe < ApplicationRecord
     end
   end
 
+  def to_param
+    slug
+  end
+
   private
 
   def can_calculate_nutrition_fact?
@@ -52,5 +58,9 @@ class Recipe < ApplicationRecord
     return if image_data.blank?
 
     image_derivatives!
+  end
+
+  def generate_slug
+    self.slug ||= [id, I18n.transliterate(title).downcase.tr(' ', '-')].join('-')
   end
 end
