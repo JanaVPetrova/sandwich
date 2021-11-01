@@ -6,7 +6,7 @@ RSpec.describe Profile::Recipes::NutritionFactsController do
   before { sign_in user }
 
   describe 'GET #index' do
-    subject { get :index, params: { recipe_id: recipe.id } }
+    subject { get :index, params: { recipe_slug: recipe.slug } }
 
     let(:recipe) { create :recipe, user: user }
 
@@ -14,7 +14,7 @@ RSpec.describe Profile::Recipes::NutritionFactsController do
   end
 
   describe 'GET #edit' do
-    subject { get :edit, params: { recipe_id: recipe.id, id: recipe_ingredient.id } }
+    subject { get :edit, params: { recipe_slug: recipe.slug, id: recipe_ingredient.id } }
 
     let(:recipe) { create :recipe, user: user }
     let(:recipe_ingredient) { create :recipe_ingredient, recipe: recipe }
@@ -26,7 +26,7 @@ RSpec.describe Profile::Recipes::NutritionFactsController do
     subject do
       put(
         :update,
-        params: { recipe_id: recipe.id, id: recipe_ingredient.id, recipe_ingredient: params },
+        params: { recipe_slug: recipe.slug, id: recipe_ingredient.id, recipe_ingredient: params },
         format: :turbo_stream
       )
     end

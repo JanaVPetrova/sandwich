@@ -6,7 +6,7 @@ RSpec.describe Profile::Recipes::IngredientGroups::RecipeIngredientsController d
       get :new,
           params:
           {
-            recipe_id: recipe.id,
+            recipe_slug: recipe.slug,
             ingredient_group_id: ingredient_group.id
           }
     }
@@ -30,7 +30,7 @@ RSpec.describe Profile::Recipes::IngredientGroups::RecipeIngredientsController d
     subject {
       post :create,
            params: {
-             recipe_id: recipe.id,
+             recipe_slug: recipe.slug,
              ingredient_group_id: ingredient_group.id,
              recipe_ingredient: recipe_ingredient
            },

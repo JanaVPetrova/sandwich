@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   namespace :profile do
     resources :home, only: :index
-    resources :recipes do
+    resources :recipes, param: :slug do
       get :edit_details, on: :member
 
       scope module: :recipes do
@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     root to: 'home#index'
   end
 
-  resources :recipes
+  resources :recipes, param: :slug
   resources :rooms do
     resources :messages
   end

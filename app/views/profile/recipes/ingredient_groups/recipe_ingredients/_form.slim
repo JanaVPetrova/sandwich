@@ -1,7 +1,7 @@
 = turbo_frame_tag dom_id(current_ingredient_group) do
   .row
     .col-md-12
-      = form_for @recipe_ingredient, url: profile_recipe_ingredient_group_recipe_ingredients_path(recipe_id: current_recipe.id, ingredient_group_id: current_ingredient_group.id) do |f|
+      = form_for @recipe_ingredient, url: profile_recipe_ingredient_group_recipe_ingredients_path(current_recipe, current_ingredient_group) do |f|
         .row.g-3.row-cols-sm-auto.align-items-center
           .col-sm-5
             = f.text_field :title, class: "form-control #{'is-invalid' if @recipe_ingredient.errors.messages[:title].present?}", placeholder: 'Ингредиент'
