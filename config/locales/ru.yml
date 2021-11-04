@@ -4,6 +4,7 @@ ru:
   cancel: Отмена
   continue: Продолжить
   back: Назад
+  sausage_sandwich: Бутерброд с колбасой
   units:
     mg: мг
     g: г
@@ -85,12 +86,6 @@ ru:
       many: щепоток
   layouts:
     application:
-      sausage_sandwich: Бутерброд с колбасой
-      create_recipe: Записать рецепт
-      my_recipes: Мои рецепты
-      sign_out: Выйти
-      sign_up: Зарегистрироваться
-      sign_in: Войти
       sausage_sandwich_copyright: Бутерброд с колбасой, %{years}
       support_on_patreon: Поддержите проект на
   user_mailer:
@@ -98,6 +93,9 @@ ru:
       subject: Сброс пароля
       reset_password: Установить новый пароль
   profile:
+    secret_recipes: Секретные рецепты
+    drafts: Черновики
+    my_recipes: Мои рецепты
     recipes:
       new:
         new_recipe: Новый рецепт
@@ -136,6 +134,13 @@ ru:
         recipe_ingredient_row:
           one_unit_weights: "1 %{unit} весит"
   shared:
+    navbar:
+      sausage_sandwich: Бутерброд с колбасой
+      create_recipe: Записать рецепт
+      my_recipes: Мои рецепты
+      sign_out: Выйти
+      sign_up: Зарегистрироваться
+      sign_in: Войти
     recipes:
       recipe:
         to_imperial: В имперскую систему мер

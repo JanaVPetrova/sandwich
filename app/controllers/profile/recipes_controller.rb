@@ -40,6 +40,14 @@ module Profile
       @recipe = current_user.recipes.find_by!(slug: params[:slug])
     end
 
+    def secret
+      @recipes = Recipe.published.secret.page(params[:page]).per(16)
+    end
+
+    def drafts
+      @recipes = Recipe.draft.page(params[:page]).per(16)
+    end
+
     private
 
     def recipe_params

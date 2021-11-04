@@ -4,6 +4,8 @@ module Profile
   class ApplicationController < ApplicationController
     class UnauthorizedError < StandardError; end
 
+    layout 'profile'
+
     before_action :authenticate!
 
     rescue_from UnauthorizedError, with: :unauthorized
