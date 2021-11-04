@@ -30,6 +30,7 @@ class Recipe < ApplicationRecord
   end
 
   scope :for_public, -> { where(secret: false).published.order(created_at: :desc) }
+  scope :secret, -> { where(secret: true) }
 
   def nutrition_fact
     return if recipe_ingredients.blank?

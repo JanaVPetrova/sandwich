@@ -1,0 +1,46 @@
+doctype html
+html lang='en'
+  head
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application'
+    = javascript_pack_tag 'application'
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    title = t('sausage_sandwich')
+
+  body
+    header.header
+    .page-container
+      = render partial: 'shared/navbar'
+      .row.with-bottom
+        .col-lg-2
+          .d-flex.flex-column.align-items-stretch.flex-shrink-0.bg-white.border-end
+            .list-group.list-group-flush.border-bottom.scrollarea
+              = link_to profile_root_path, class: "list-group-item list-group-item-action #{active_link_class(profile_root_path)} py-3 lh-tight" do
+                span.bi.bi-emoji-smile-upside-down.ml-1
+                | &nbsp;
+                = t('profile.my_recipes')
+            .list-group.list-group-flush.border-bottom.scrollarea
+              = link_to drafts_profile_recipes_path, class: "list-group-item list-group-item-action #{active_link_class(drafts_profile_recipes_path)} py-3 lh-tight" do
+                span.bi.bi-pencil.ml-1
+                | &nbsp;
+                = t('profile.drafts')
+            .list-group.list-group-flush.border-bottom.scrollarea
+              = link_to secret_profile_recipes_path, class: "list-group-item list-group-item-action #{active_link_class(secret_profile_recipes_path)} py-3 lh-tight" do
+                span.bi.bi-lock.ml-1
+                | &nbsp;
+                = t('profile.secret_recipes')
+        .col-lg-10
+          .container.mt-1.mb-4
+            - if flash[:success].present?
+              .alert.alert-success role='alert'
+                = flash[:success]
+            - elsif flash[:error].present?
+              .alert.alert-danger role='alert'
+                = flash[:error]
+          .container
+            main role='main'
+              = yield
+
+      footer.footer.bg-main.text-white
+        = t('.sausage_sandwich_copyright', years: [2020, Time.current.year].join(' – '))

@@ -20,4 +20,10 @@ module ApplicationHelper
   def signed_in?
     current_user.present?
   end
+
+  def active_link_class(link)
+    return '' unless current_page?(link)
+
+    'active'
+  end
 end

@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :home, only: :index
     resources :recipes, param: :slug do
       get :edit_details, on: :member
+      get :secret, on: :collection
+      get :drafts, on: :collection
 
       scope module: :recipes do
         resources :ingredient_groups, only: %i[index new create edit update] do

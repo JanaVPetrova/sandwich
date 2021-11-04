@@ -34,6 +34,32 @@ RSpec.describe Profile::RecipesController do
     end
   end
 
+  describe 'GET #secret' do
+    subject { get :secret }
+
+    let(:user) { create :user }
+
+    before do
+      sign_in user
+      create :recipe, user: user, secret: true
+    end
+
+    it { is_expected.to have_http_status :ok }
+  end
+
+  describe 'GET #drafts' do
+    subject { get :drafts }
+
+    let(:user) { create :user }
+
+    before do
+      sign_in user
+      create :recipe, user: user, state: :draft
+    end
+
+    it { is_expected.to have_http_status :ok }
+  end
+
   describe 'POST #create' do
     subject { post :create, params: params }
 
