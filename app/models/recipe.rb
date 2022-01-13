@@ -11,10 +11,9 @@ class Recipe < ApplicationRecord
 
   validates :title, presence: true
   validates :body, presence: true
-  validates :slug, presence: true, uniqueness: true
 
-  before_validation :generate_slug
-  after_create :generate_image_derivatives
+  before_create :generate_slug
+  after_commit :generate_image_derivatives
 
   aasm column: :state do
     state :draft, initial: true
@@ -56,12 +55,14 @@ class Recipe < ApplicationRecord
   end
 
   def generate_image_derivatives
-    return if image_data.blank?
+    return if image.blank?
 
     image_derivatives!
   end
 
   def generate_slug
-    self.slug ||= [id, I18n.transliterate(title).downcase.tr(' ', '-')].join('-')
+    next_id = Recipe.connection.select_value("SELECT NEXTVAL('recipes_id_seq')")
+
+    self.slug ||= [next_id, I18n.transliterate(title.strip).downcase.tr(' ', '-')].join('-')
   end
 end
