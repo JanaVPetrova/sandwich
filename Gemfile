@@ -24,7 +24,7 @@ gem 'sprockets-rails', require: 'sprockets/railtie'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 
-gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.12'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 
